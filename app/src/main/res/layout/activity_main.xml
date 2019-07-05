@@ -7,6 +7,118 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.constraintlayout.widget.Group android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:id="@+id/Group_group"
+                                            app:constraint_referenced_ids="Button_show,Button_hide"
+    />
+
+    <androidx.constraintlayout.widget.Group android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:id="@+id/Group_grouphelper"
+                                            app:constraint_referenced_ids="Button_hide_1,Button_hide_2"
+                                            android:visibility="gone"
+    />
+
+
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/Button_group"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/Button_occupied_group"
+            android:text="Group行为"
+    />
+
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/Button_occupied_group"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/Button_group"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="自定义行为"
+    />
+
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/Button_hide_1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/Button_group"
+            android:text="隐藏Buttom_1"
+    />
+
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/Button_show"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/Button_group"
+            android:text="展示Group"
+    />
+
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/Button_hide"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Button_show"
+            android:text="隐藏Group"
+    />
+
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/Button_hide_2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Button_hide_1"
+            android:text="隐藏Buttom_2"
+
+    />
+
+    <TextView android:layout_width="100dp" android:layout_height="100dp" android:id="@+id/TextView_1"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintRight_toRightOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              android:layout_marginTop="40dp"
+              android:gravity="center"
+              app:layout_constraintBottom_toTopOf="@+id/TextView_2"
+              app:layout_constraintVertical_chainStyle="packed"
+              android:text="Top"
+    />
+    <TextView android:layout_width="100dp" android:layout_height="100dp" android:id="@+id/TextView_2"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintRight_toRightOf="parent"
+              android:text="Middle"
+              android:gravity="center"
+              app:layout_constraintBottom_toTopOf="@+id/GroupHelper"
+              app:layout_constraintTop_toBottomOf="@+id/TextView_1"
+    />
+
+    <TextView android:layout_width="100dp" android:layout_height="100dp"
+              app:layout_constraintLeft_toLeftOf="@+id/GroupHelper"
+              app:layout_constraintTop_toTopOf="@+id/GroupHelper"
+              app:layout_constraintBottom_toBottomOf="@+id/GroupHelper"
+              app:layout_constraintRight_toRightOf="@+id/GroupHelper"
+              android:id="@+id/TextView_3"
+              android:gravity="center"
+              android:visibility="gone"
+              android:text="Bottom_1"
+    />
+
+    <TextView android:layout_width="100dp" android:layout_height="100dp"
+              app:layout_constraintLeft_toLeftOf="@+id/GroupHelper"
+              app:layout_constraintTop_toTopOf="@+id/GroupHelper"
+              app:layout_constraintBottom_toBottomOf="@+id/GroupHelper"
+              app:layout_constraintRight_toRightOf="@+id/GroupHelper"
+              android:id="@+id/TextView_4"
+              android:gravity="center"
+              android:text="Bottom_2"
+    />
+
+    <com.example.lw.grouphelper.OccupiedGroupHelper android:layout_width="100dp" android:layout_height="100dp"
+                                                    android:id="@+id/GroupHelper"
+                                                    app:isGroupBehaviour="true"
+                                                    app:layout_constraintTop_toBottomOf="@+id/TextView_2"
+                                                    app:constraint_referenced_ids="TextView_3,TextView_4"
+                                                    app:layout_constraintLeft_toLeftOf="@+id/TextView_2"
+                                                    app:layout_constraintBottom_toBottomOf="parent"
+    />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
