@@ -1,6 +1,7 @@
-package com.example.lw.grouphelper
+package com.lw.ocupiedgrouphelper
 
 import android.content.Context
+import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.solver.widgets.ConstraintWidget
@@ -42,7 +43,9 @@ class OccupiedGroupHelper constructor(context: Context?, attrs: AttributeSet?) :
         for (i in 0 until mCount) {
             val id = mIds[i]
             val view = container!!.getViewById(id)
-            view.elevation = elevation
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                view.elevation = elevation
+            }
             // 和Group行为一致
             if (isGroupBehavior) {
                 view.visibility = visibility
